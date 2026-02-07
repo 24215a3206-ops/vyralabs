@@ -26,14 +26,17 @@ export function Header() {
 
     return (
         <motion.header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-background/50 backdrop-blur-xl border-b border-white/5 py-4' : 'bg-transparent py-6'
-                }`}
-            initial={{ y: -100, opacity: 0 }}
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                scrolled 
+                    ? 'bg-background/80 backdrop-blur-xl border-b border-border py-4' 
+                    : 'bg-transparent py-5'
+            }`}
+            initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4, ease: [0.22, 0.03, 0.26, 1] }}
         >
-            <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-                <Link href="/" className="text-xl font-bold tracking-tight z-50">
+            <div className="container mx-auto px-6 md:px-16 flex items-center justify-between max-w-7xl">
+                <Link href="/" className="text-base font-semibold tracking-tight z-50 hover:opacity-60 transition-opacity duration-200">
                     Vyra Labs
                 </Link>
 
@@ -43,44 +46,52 @@ export function Header() {
                         <Link
                             key={item.name}
                             href={item.href}
-                            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
                         >
                             {item.name}
                         </Link>
                     ))}
-                    <Button variant="secondary" className="bg-white/5 hover:bg-white/10 text-xs px-4 h-9">
-                        Let&apos;s Talk
+                    <Button variant="secondary" className="text-xs px-4 h-9">
+                        Let&apos;s talk
                     </Button>
                 </nav>
 
                 {/* Mobile Toggle */}
                 <button
-                    className="md:hidden z-50 p-2 text-foreground"
+                    className="md:hidden z-50 p-2 text-foreground hover:opacity-60 transition-opacity duration-200"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    aria-label="Toggle menu"
                 >
-                    {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
                 </button>
 
                 {/* Mobile Menu */}
                 {mobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-0 bg-background/95 backdrop-blur-3xl z-40 flex flex-col items-center justify-center gap-8"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-center gap-8"
                     >
-                        {navItems.map((item) => (
-                            <Link
+                        {navItems.map((item, index) => (
+                            <motion.div
                                 key={item.name}
-                                href={item.href}
-                                className="text-2xl font-light tracking-tight"
-                                onClick={() => setMobileMenuOpen(false)}
+                                initial={{ opacity: 0, y: 8 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.05, duration: 0.3 }}
                             >
-                                {item.name}
-                            </Link>
+                                <Link
+                                    href={item.href}
+                                    className="text-2xl font-light tracking-tight hover:opacity-60 transition-opacity duration-200"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    {item.name}
+                                </Link>
+                            </motion.div>
                         ))}
                         <Button className="mt-4" onClick={() => setMobileMenuOpen(false)}>
-                            Let&apos;s Talk
+                            Let&apos;s talk
                         </Button>
                     </motion.div>
                 )}
