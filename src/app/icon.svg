@@ -1,0 +1,6 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Blue square with diamond -->
+  <rect x="20" y="20" width="200" height="200" rx="32" fill="#0066FF"/>
+  <path d="M120 60L180 120L120 180L60 120L120 60Z" fill="white" stroke="white" stroke-width="8"/>
+  <path d="M120 90L150 120L120 150L90 120L120 90Z" fill="#0066FF"/>
+</svg>

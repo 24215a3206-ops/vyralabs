@@ -6,18 +6,21 @@ import { Code2, Rocket, Layers } from 'lucide-react'
 const services = [
     {
         icon: <Code2 className="w-6 h-6 text-foreground" />,
-        title: 'Website Development',
-        description: 'High-performance marketing sites that convert. Built with Next.js for speed and SEO.',
+        title: 'High-Performance Websites',
+        description: 'Lightning-fast marketing sites that convert visitors into customers. Built with Next.js for 99+ performance scores, SEO dominance, and measurable ROI.',
+        keywords: 'Sub-second load times • SEO-optimized • Conversion-focused',
     },
     {
         icon: <Rocket className="w-6 h-6 text-foreground" />,
-        title: 'SaaS MVPs',
-        description: 'Rapid prototyping and scalable architecture to get your product to market fast.',
+        title: 'SaaS MVP Development',
+        description: 'From concept to launch-ready product in 6-8 weeks. Scalable architecture, intuitive UX, and production-grade code that grows with your business.',
+        keywords: 'Rapid deployment • Enterprise-ready • Investor-grade quality',
     },
     {
         icon: <Layers className="w-6 h-6 text-foreground" />,
-        title: 'Internal Tools',
-        description: 'Streamline operations with custom dashboards and admin panels tailored to your workflow.',
+        title: 'Custom Enterprise Tools',
+        description: 'Tailored internal platforms, admin dashboards, and workflow automation that save hours daily. Built to optimize your team\'s unique processes.',
+        keywords: 'Workflow automation • Real-time data • Team efficiency',
     },
 ]
 
@@ -31,18 +34,18 @@ export function Services() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.5, ease: [0.22, 0.03, 0.26, 1] }}
-                        className="text-4xl md:text-6xl font-semibold mb-6 tracking-[-0.02em]"
+                        className="text-4xl md:text-6xl font-bold mb-6 tracking-[-0.02em]"
                     >
-                        What we do
+                        What we create
                     </motion.h2>
                     <motion.p 
                         initial={{ opacity: 0, y: 8 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.5, delay: 0.05, ease: [0.22, 0.03, 0.26, 1] }}
-                        className="text-muted-foreground text-lg font-light leading-relaxed"
+                        className="text-gray-700 text-lg leading-relaxed"
                     >
-                        We don&apos;t just write code. We build systems that help your business grow.
+                        Every line of code serves a business goal. We prioritize features that drive revenue, reduce costs, or save time—nothing else makes the cut.
                     </motion.p>
                 </div>
 
@@ -60,8 +63,11 @@ export function Services() {
                                 {service.icon}
                             </div>
                             <h3 className="text-lg font-semibold mb-3 tracking-tight">{service.title}</h3>
-                            <p className="text-muted-foreground leading-relaxed font-light text-[15px]">
+                            <p className="text-gray-700 leading-relaxed text-[15px] mb-4">
                                 {service.description}
+                            </p>
+                            <p className="text-xs text-gray-500 font-medium tracking-wide uppercase">
+                                {service.keywords}
                             </p>
                         </motion.div>
                     ))}

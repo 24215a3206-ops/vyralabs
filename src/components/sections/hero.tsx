@@ -23,37 +23,41 @@ export function Hero() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.1, duration: 0.5 }}
-                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-subtle border border-border text-xs font-medium text-muted-foreground mb-8"
+                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-subtle border border-border text-xs font-medium text-gray-700 mb-8"
                     >
                         <span className="relative flex h-1.5 w-1.5">
-                            <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-40 animate-[ping_2s_ease-in-out_infinite]"></span>
-                            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent"></span>
+                            <span className="absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-40 animate-[ping_2s_ease-in-out_infinite]"></span>
+                            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-blue"></span>
                         </span>
-                        Accepting select projects
+                        Now accepting Q2 2026 projects — Limited availability
                     </motion.div>
 
-                    {/* Main heading - confident, clear */}
-                    <h1 className="text-6xl md:text-8xl font-semibold tracking-[-0.03em] text-foreground leading-[0.95] mb-8">
-                        Building modern
+                    {/* Main heading - Primary brand message */}
+                    <h1 className="text-6xl md:text-8xl font-bold tracking-[-0.03em] text-foreground leading-[0.95] mb-8">
+                        Where vision
                         <br />
-                        digital products.
+                        meets velocity.
                     </h1>
 
-                    {/* Supporting text - room to breathe */}
-                    <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl leading-relaxed font-light">
-                        We build high-performance websites and scalable SaaS products with
-                        founder-level clarity and engineering precision.
+                    {/* Supporting text - Brand positioning statement */}
+                    <p className="text-lg md:text-xl text-gray-700 mb-12 max-w-2xl leading-relaxed">
+                        Elite digital products built with founder-level clarity, world-class design, and bulletproof engineering. 
+                        We ship high-performance SaaS MVPs, conversion-optimized websites, and enterprise-grade tools in weeks, not months.
                     </p>
 
                     {/* CTA - simple, direct */}
                     <div className="flex flex-col sm:flex-row items-start gap-3">
-                        <Button className="group h-11 px-6 text-sm">
-                            Start a project
-                            <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-                        </Button>
-                        <Button variant="ghost" className="h-11 px-6 text-sm">
-                            View our work
-                        </Button>
+                        <a href="#contact" className="no-underline">
+                            <Button variant="accent" className="group h-11 px-6 text-sm">
+                                Start your project
+                                <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                            </Button>
+                        </a>
+                        <a href="#services" className="no-underline">
+                            <Button variant="ghost" className="h-11 px-6 text-sm">
+                                Explore what we do
+                            </Button>
+                        </a>
                     </div>
                 </motion.div>
             </div>

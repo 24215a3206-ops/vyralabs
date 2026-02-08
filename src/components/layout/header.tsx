@@ -1,15 +1,16 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 
 const navItems = [
-    { name: 'Services', href: '#services' },
-    { name: 'Why Us', href: '#values' },
-    { name: 'Work', href: '#work' },
+    { name: 'What we do', href: '#services' },
+    { name: 'Why Vyra', href: '#values' },
+    { name: 'Get started', href: '#contact' },
 ]
 
 export function Header() {
@@ -36,8 +37,16 @@ export function Header() {
             transition={{ duration: 0.4, ease: [0.22, 0.03, 0.26, 1] }}
         >
             <div className="container mx-auto px-6 md:px-16 flex items-center justify-between max-w-7xl">
-                <Link href="/" className="text-base font-semibold tracking-tight z-50 hover:opacity-60 transition-opacity duration-200">
-                    Vyra Labs
+                <Link href="/" className="flex items-center gap-3 z-50 hover:opacity-80 transition-opacity duration-200">
+                    <Image 
+                        src="/icon.svg" 
+                        alt="Vyra Labs" 
+                        width={40} 
+                        height={40}
+                        className="w-10 h-10"
+                        priority
+                    />
+                    <span className="text-lg font-semibold tracking-tight">Vyra Labs</span>
                 </Link>
 
                 {/* Desktop Nav */}
@@ -46,14 +55,16 @@ export function Header() {
                         <Link
                             key={item.name}
                             href={item.href}
-                            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+                            className="text-sm font-medium text-gray-700 hover:text-foreground transition-colors duration-200"
                         >
                             {item.name}
                         </Link>
                     ))}
-                    <Button variant="secondary" className="text-xs px-4 h-9">
-                        Let&apos;s talk
-                    </Button>
+                    <a href="mailto:hello@vyralabs.systems">
+                        <Button variant="secondary" className="text-xs px-4 h-9">
+                            Book a call
+                        </Button>
+                    </a>
                 </nav>
 
                 {/* Mobile Toggle */}

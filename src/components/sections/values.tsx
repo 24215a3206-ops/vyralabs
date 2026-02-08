@@ -4,16 +4,16 @@ import { motion } from 'framer-motion'
 
 const values = [
     {
-        title: 'Clean code',
-        description: 'Maintainable, scalable, and documented. We write code that your future team will thank us for.',
+        title: 'Elite quality, selective partnerships',
+        description: 'We limit ourselves to 12-16 projects annually to maintain exceptional standards. Every project receives senior-level attention from day one. No offshore teams, no junior developers learning on your budget.',
     },
     {
-        title: 'Fast delivery',
-        description: 'Weekly sprints and regular updates. We ship features, not excuses.',
+        title: 'Business outcomes over technical theater',
+        description: 'We measure success by your metrics—revenue growth, conversion rates, time saved. Every feature ships with clear ROI documentation. If a technology doesn\'t serve your business goals, we won\'t recommend it.',
     },
     {
-        title: 'Founder mindset',
-        description: 'We prioritize business value over technical vanity. If it doesn&apos;t move the needle, we don&apos;t build it.',
+        title: 'Built to last, designed to scale',
+        description: 'Production-grade code from sprint one. Comprehensive documentation, automated testing, and architecture reviews ensure your future team can build on our foundation. Weekly progress updates and transparent roadmaps—no surprises.',
     },
 ]
 
@@ -28,18 +28,18 @@ export function Values() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, ease: [0.22, 0.03, 0.26, 1] }}
-                            className="text-4xl md:text-6xl font-semibold mb-6 leading-tight tracking-[-0.02em]"
+                            className="text-4xl md:text-6xl font-bold mb-6 leading-tight tracking-[-0.02em]"
                         >
-                            Why world-class brands choose Vyra Labs.
+                            The Vyra difference
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, y: 8 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ delay: 0.05, duration: 0.5, ease: [0.22, 0.03, 0.26, 1] }}
-                            className="text-muted-foreground text-lg font-light leading-relaxed"
+                            className="text-gray-700 text-lg leading-relaxed"
                         >
-                            We bridge the gap between design agency creative and engineering firm reliability.
+                            Where design agencies end and engineering firms begin. We bridge the gap between beautiful interfaces and bulletproof systems—without compromise.
                         </motion.p>
                     </div>
 
@@ -51,10 +51,10 @@ export function Values() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ delay: index * 0.08, duration: 0.5, ease: [0.22, 0.03, 0.26, 1] }}
-                                className="border-l-2 border-border pl-6 hover:border-foreground transition-colors duration-300"
+                                className="border-l-2 border-border pl-6 hover:border-brand-blue transition-colors duration-300"
                             >
                                 <h3 className="text-xl font-semibold mb-3 tracking-tight">{value.title}</h3>
-                                <p className="text-muted-foreground leading-relaxed font-light">{value.description}</p>
+                                <p className="text-gray-700 leading-relaxed">{value.description}</p>
                             </motion.div>
                         ))}
                     </div>
