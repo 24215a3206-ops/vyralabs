@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  verification: {
+    google: "google6ce82cf764e01529",
+  },
 
   openGraph: {
     title: "Vyra Labs — Elite Digital Product Studio",
