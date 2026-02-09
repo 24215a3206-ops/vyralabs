@@ -15,6 +15,13 @@ export const metadata: Metadata = {
     template: "%s | Vyra Labs"
   },
   description: "Where design agencies end and engineering firms begin. We craft high-performance digital products with founder-level clarity, world-class design, and bulletproof engineering. From zero to launch in weeks, not months.",
+  icons: {
+    icon: [
+      { url: '/icon', sizes: '32x32', type: 'image/png' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: { url: '/apple-icon', sizes: '180x180', type: 'image/png' },
+  },
   keywords: [
     "digital product studio",
     "SaaS MVP development",
