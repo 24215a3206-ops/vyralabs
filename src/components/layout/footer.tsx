@@ -75,10 +75,10 @@ export function Footer() {
                         &copy; {new Date().getFullYear()} Vyra Labs. All rights reserved.
                     </div>
                     <div className="flex items-center gap-6 text-xs text-gray-500">
-                        <Link href="#" className="hover:text-foreground transition-colors duration-200">
+                        <Link href="/privacy" className="hover:text-foreground transition-colors duration-200">
                             Privacy Policy
                         </Link>
-                        <Link href="#" className="hover:text-foreground transition-colors duration-200">
+                        <Link href="/terms" className="hover:text-foreground transition-colors duration-200">
                             Terms of Service
                         </Link>
                     </div>

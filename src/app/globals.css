@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Vyra Labs Brand Colors */
+  /* Vyra Labs Brand Colors - Light Mode */
   --background: #FFFFFF;
   --foreground: #0A0A0A; /* Brand Black */
   
@@ -29,6 +29,35 @@
   --warning: #FFB300;
   --error: #E53935;
   --premium: #6200EA;
+}
+
+/* Dark Mode */
+.dark {
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
+  
+  /* Brand Blue stays vibrant in dark mode */
+  --brand-blue: #3D8BFF;
+  --brand-blue-hover: #0066FF;
+  
+  /* Dark mode grays (inverted) */
+  --gray-900: #E5E5E5;
+  --gray-700: #B3B3B3;
+  --gray-500: #808080;
+  --gray-300: #404040;
+  --gray-100: #1A1A1A;
+  
+  /* Semantic aliases for dark mode */
+  --muted: var(--gray-100);
+  --muted-foreground: var(--gray-700);
+  --border: var(--gray-300);
+  --subtle: var(--gray-100);
+  
+  /* Slightly adjusted accent colors for dark mode */
+  --success: #00E676;
+  --warning: #FFC400;
+  --error: #FF5252;
+  --premium: #7C4DFF;
 }
 
 @theme {
@@ -161,3 +190,90 @@ html {
 .space-64 { margin: 64px; }
 .space-96 { margin: 96px; }
 .space-128 { margin: 128px; }
+
+/* ==========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ========================================== */
+
+/* Focus Visible Styles - WCAG 2.4.7 */
+*:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove default focus for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Screen Reader Only Content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip to Content Link */
+.sr-only:focus {
+  position: fixed;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Reduced Motion Support - WCAG 2.3.3 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --border: #000000;
+    --gray-300: #000000;
+  }
+  
+  button,
+  a {
+    outline: 2px solid currentColor;
+  }
+}
+
+/* Improve link visibility */
+a:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Button focus improvements */
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
+}
+
+/* Ensure sufficient color contrast */
+::selection {
+  background-color: var(--brand-blue);
+  color: white;
+}

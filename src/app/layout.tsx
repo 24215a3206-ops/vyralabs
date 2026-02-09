@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@/components/analytics";
+import { SkipToContent } from "@/components/skip-to-content";
+import { ErrorBoundary } from "@/components/error-boundary";
+import { ThemeProvider } from "@/components/theme-provider";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import { KeyboardShortcuts } from "@/components/keyboard-shortcuts";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -102,7 +108,15 @@ export default function RootLayout({
       <body
         className={`${inter.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider>
+          <SmoothScroll />
+          <KeyboardShortcuts />
+          <SkipToContent />
+          <Analytics />
+          <ErrorBoundary>
+            {children}
+          </ErrorBoundary>
+        </ThemeProvider>
       </body>
     </html>
   );
