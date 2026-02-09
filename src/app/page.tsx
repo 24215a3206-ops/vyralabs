@@ -53,6 +53,7 @@ export default function Home() {
         logo="https://vyralabs.systems/icon.svg"
         description="Elite digital product studio. We craft high-performance products with world-class design and bulletproof engineering."
         email="hello@vyralabs.systems"
+        phone="+918309516983"
         social={{
           linkedin: "https://linkedin.com/company/vyralabs",
           twitter: "https://twitter.com/vyralabs"

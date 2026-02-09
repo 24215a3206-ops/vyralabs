@@ -6,24 +6,24 @@ import { Quote } from 'lucide-react'
 const testimonials = [
     {
         quote: "Vyra Labs transformed our vision into a production-ready SaaS platform in 8 weeks. Their technical expertise and design sensibility are unmatched. We went from concept to 1,000 users in the first month.",
-        author: "Sarah Chen",
+        author: "Priya Sharma",
         role: "CEO & Founder",
         company: "TechFlow",
-        image: "/testimonials/sarah.jpg" // Placeholder
+        image: "/testimonials/priya.jpg"
     },
     {
         quote: "Working with Vyra felt like having a technical co-founder. They didn't just build what we asked for—they challenged our assumptions and delivered something far better. Our conversion rate increased 340%.",
-        author: "Michael Rodriguez",
+        author: "Arjun Mehta",
         role: "VP of Product",
         company: "DataSync",
-        image: "/testimonials/michael.jpg" // Placeholder
+        image: "/testimonials/arjun.jpg"
     },
     {
         quote: "The quality-to-speed ratio is incredible. We've worked with agencies 3x the price that delivered half the value. Vyra's code is clean, documented, and scaled with us from MVP to Series A.",
-        author: "Emily Watson",
+        author: "Neha Kapoor",
         role: "CTO",
         company: "CloudMetrics",
-        image: "/testimonials/emily.jpg" // Placeholder
+        image: "/testimonials/neha.jpg"
     }
 ]
 

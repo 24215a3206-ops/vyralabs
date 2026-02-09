@@ -6,13 +6,14 @@ interface OrganizationSchemaProps {
     logo: string
     description: string
     email: string
+    phone?: string
     social: {
         linkedin?: string
         twitter?: string
     }
 }
 
-export function OrganizationSchema({ name, url, logo, description, email, social }: OrganizationSchemaProps) {
+export function OrganizationSchema({ name, url, logo, description, email, phone, social }: OrganizationSchemaProps) {
     const schema = {
         '@context': 'https://schema.org',
         '@type': 'Organization',
@@ -21,6 +22,13 @@ export function OrganizationSchema({ name, url, logo, description, email, social
         logo,
         description,
         email,
+        telephone: phone,
+        address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Hyderabad',
+            addressRegion: 'Telangana',
+            addressCountry: 'IN'
+        },
         sameAs: [
             social.linkedin,
             social.twitter,
@@ -28,6 +36,7 @@ export function OrganizationSchema({ name, url, logo, description, email, social
         contactPoint: {
             '@type': 'ContactPoint',
             email,
+            telephone: phone,
             contactType: 'customer service',
             areaServed: 'Worldwide',
             availableLanguage: ['English']

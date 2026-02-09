@@ -96,6 +96,37 @@ export function Contact() {
                     <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
                         We accept 12-16 select projects each year. Share your vision below and we&apos;ll get back to you within 24 hours.
                     </p>
+
+                    {/* Direct Contact Info */}
+                    <div className="flex flex-wrap items-center justify-center gap-6 mt-8">
+                        <a 
+                            href="tel:+918309516983" 
+                            className="inline-flex items-center gap-2 text-brand-blue hover:text-brand-blue-hover font-medium transition-colors"
+                        >
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            +91 8309516983
+                        </a>
+                        <a 
+                            href="mailto:hello@vyralabs.systems" 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-brand-blue hover:text-brand-blue-hover font-medium transition-colors"
+                        >
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            hello@vyralabs.systems
+                        </a>
+                        <span className="inline-flex items-center gap-2 text-gray-600">
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            Hyderabad, Telangana
+                        </span>
+                    </div>
                 </motion.div>
 
                 <motion.div
@@ -134,7 +165,7 @@ export function Contact() {
                                         value={formData.name}
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all duration-200"
-                                        placeholder="John Doe"
+                                        placeholder="Rahul Verma"
                                     />
                                 </div>
 
@@ -150,7 +181,7 @@ export function Contact() {
                                         value={formData.email}
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all duration-200"
-                                        placeholder="john@company.com"
+                                        placeholder="rahul@company.com"
                                     />
                                 </div>
                             </div>
@@ -166,7 +197,7 @@ export function Contact() {
                                     value={formData.company}
                                     onChange={handleChange}
                                     className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all duration-200"
-                                    placeholder="Acme Inc."
+                                    placeholder="Acme Technologies"
                                 />
                             </div>
 

@@ -2,10 +2,18 @@ import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, Clock, Calendar } from 'lucide-react'
 
-// This will be replaced with actual MDX content later
-const blogPosts: Record<string, any> = {
+interface BlogPost {
+    title: string
+    date: string
+    category: string
+    readTime: string
+    author: string
+    content: string
+}
+
+const blogPosts: Record<string, BlogPost> = {
     'mvp-development-checklist': {
         title: 'The Complete MVP Development Checklist for 2026',
         date: '2026-02-08',
@@ -35,12 +43,12 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
     return (
         <>
             <Header />
-            <main className="min-h-screen bg-background pt-32 pb-20">
-                <article className="container mx-auto px-6 md:px-16 max-w-4xl">
+            <main className="min-h-screen bg-background pt-28 pb-20">
+                <article className="container mx-auto px-6 md:px-16 max-w-3xl">
                     {/* Back Link */}
                     <Link 
                         href="/blog"
-                        className="inline-flex items-center gap-2 text-brand-blue hover:underline mb-8"
+                        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-10"
                     >
                         <ArrowLeft className="w-4 h-4" />
                         Back to blog
@@ -48,43 +56,48 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
                     {/* Header */}
                     <header className="mb-12">
-                        <div className="mb-4">
-                            <span className="inline-block px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-sm font-medium">
-                                {post.category}
-                            </span>
-                        </div>
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-[-0.02em]">
+                        <span className="inline-block px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-sm font-medium mb-5">
+                            {post.category}
+                        </span>
+                        <h1 className="text-3xl md:text-5xl font-bold mb-6 tracking-[-0.02em] leading-[1.15]">
                             {post.title}
                         </h1>
-                        <div className="flex items-center gap-4 text-sm text-gray-600">
-                            <span>{post.author}</span>
-                            <span>•</span>
-                            <time>{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
-                            <span>•</span>
-                            <span>{post.readTime}</span>
+                        <div className="flex items-center gap-5 text-sm text-muted-foreground">
+                            <span className="font-medium text-foreground">{post.author}</span>
+                            <span className="flex items-center gap-1.5">
+                                <Calendar className="w-3.5 h-3.5" />
+                                {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                            </span>
+                            <span className="flex items-center gap-1.5">
+                                <Clock className="w-3.5 h-3.5" />
+                                {post.readTime}
+                            </span>
                         </div>
                     </header>
 
+                    {/* Divider */}
+                    <hr className="border-border mb-10" />
+
                     {/* Content */}
                     <div 
-                        className="prose prose-lg max-w-none"
+                        className="prose prose-lg max-w-none text-foreground prose-headings:tracking-tight prose-p:text-muted-foreground prose-p:leading-[1.8] prose-a:text-brand-blue"
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     />
 
-                    {/* Share & Newsletter CTA */}
+                    {/* CTA */}
                     <div className="mt-16 pt-8 border-t border-border">
-                        <div className="bg-subtle rounded-2xl p-8 text-center">
-                            <h3 className="text-2xl font-bold mb-3">
+                        <div className="bg-muted rounded-xl p-8 text-center">
+                            <h3 className="text-xl font-bold mb-2">
                                 Enjoyed this article?
                             </h3>
-                            <p className="text-gray-700 mb-6">
-                                Subscribe to our newsletter for more insights on building world-class products.
+                            <p className="text-muted-foreground text-sm mb-5">
+                                Let&apos;s talk about how we can help you build something amazing.
                             </p>
                             <Link 
-                                href="/#newsletter"
-                                className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-brand-blue text-white font-medium hover:bg-brand-blue-hover transition-colors duration-200"
+                                href="/#contact"
+                                className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity duration-200"
                             >
-                                Subscribe to newsletter
+                                Get in touch
                             </Link>
                         </div>
                     </div>

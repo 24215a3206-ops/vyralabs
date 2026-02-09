@@ -2,22 +2,25 @@ import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArrowRight, Clock, Calendar } from 'lucide-react'
 
 export const metadata: Metadata = {
     title: 'Blog & Resources',
     description: 'Insights on product development, startup growth, and technical best practices from Vyra Labs.',
 }
 
-// Placeholder blog posts - will be replaced with MDX content
 const blogPosts = [
     {
         slug: 'mvp-development-checklist',
         title: 'The Complete MVP Development Checklist for 2026',
-        excerpt: 'A comprehensive guide to building and launching your minimum viable product without wasting time or resources.',
+        excerpt: 'A comprehensive guide to building and launching your minimum viable product. Learn the exact process we use to take startups from idea to launch without wasting time or resources.',
         category: 'Product Development',
         readTime: '8 min read',
         date: '2026-02-08',
-        author: 'Vyra Labs Team'
+        author: 'Vyra Labs Team',
+        featured: true,
+        color: 'from-blue-500 to-blue-700',
+        icon: '📋'
     },
     {
         slug: 'nextjs-performance-optimization',
@@ -26,7 +29,10 @@ const blogPosts = [
         category: 'Technical',
         readTime: '12 min read',
         date: '2026-02-05',
-        author: 'Vyra Labs Team'
+        author: 'Vyra Labs Team',
+        featured: false,
+        color: 'from-emerald-500 to-emerald-700',
+        icon: '⚡'
     },
     {
         slug: 'saas-tech-stack-2026',
@@ -35,7 +41,10 @@ const blogPosts = [
         category: 'Startup Growth',
         readTime: '10 min read',
         date: '2026-02-01',
-        author: 'Vyra Labs Team'
+        author: 'Vyra Labs Team',
+        featured: false,
+        color: 'from-violet-500 to-violet-700',
+        icon: '🧱'
     },
     {
         slug: 'design-systems-that-scale',
@@ -44,16 +53,22 @@ const blogPosts = [
         category: 'Design',
         readTime: '15 min read',
         date: '2026-01-28',
-        author: 'Vyra Labs Team'
+        author: 'Vyra Labs Team',
+        featured: false,
+        color: 'from-pink-500 to-pink-700',
+        icon: '🎨'
     },
     {
         slug: 'startup-mistakes-avoid',
-        title: '7 Technical Mistakes That Kill Startups (And How to Avoid Them)',
+        title: '7 Technical Mistakes That Kill Startups',
         excerpt: 'Common technical pitfalls we see early-stage startups make and how to build smarter from day one.',
         category: 'Startup Growth',
         readTime: '9 min read',
         date: '2026-01-25',
-        author: 'Vyra Labs Team'
+        author: 'Vyra Labs Team',
+        featured: false,
+        color: 'from-amber-500 to-amber-700',
+        icon: '🚨'
     },
     {
         slug: 'api-design-best-practices',
@@ -62,38 +77,83 @@ const blogPosts = [
         category: 'Technical',
         readTime: '11 min read',
         date: '2026-01-22',
-        author: 'Vyra Labs Team'
+        author: 'Vyra Labs Team',
+        featured: false,
+        color: 'from-cyan-500 to-cyan-700',
+        icon: '🔌'
     }
 ]
 
 const categories = ['All', 'Technical', 'Product Development', 'Startup Growth', 'Design']
 
 export default function BlogPage() {
+    const featuredPost = blogPosts.find(p => p.featured)
+    const otherPosts = blogPosts.filter(p => !p.featured)
+
     return (
         <>
             <Header />
-            <main className="min-h-screen bg-background pt-32 pb-20">
-                <div className="container mx-auto px-6 md:px-16 max-w-7xl">
-                    {/* Header */}
-                    <div className="mb-16 max-w-3xl">
-                        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-[-0.02em]">
+            <main className="min-h-screen bg-background pt-28 pb-20">
+                <div className="container mx-auto px-6 md:px-16 max-w-6xl">
+
+                    {/* Page Header */}
+                    <div className="mb-14">
+                        <p className="text-brand-blue font-medium text-sm tracking-wide uppercase mb-3">
                             Blog & Resources
+                        </p>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em] leading-tight">
+                            Insights for builders
                         </h1>
-                        <p className="text-xl text-gray-700 leading-relaxed">
-                            Practical insights on building world-class digital products. 
-                            Learn from our experience shipping 50+ successful projects.
+                        <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                            Practical guides on product development, engineering, and startup growth from the Vyra Labs team.
                         </p>
                     </div>
 
+                    {/* Featured Post */}
+                    {featuredPost && (
+                        <Link href={`/blog/${featuredPost.slug}`} className="block group mb-16">
+                            <article className="relative bg-foreground text-background rounded-2xl overflow-hidden">
+                                <div className="grid grid-cols-1 md:grid-cols-2">
+                                    {/* Content */}
+                                    <div className="p-8 md:p-12 flex flex-col justify-center">
+                                        <span className="inline-block w-fit px-3 py-1 rounded-full bg-white/15 text-sm font-medium mb-5">
+                                            {featuredPost.category}
+                                        </span>
+                                        <h2 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight leading-snug group-hover:text-brand-blue transition-colors duration-200">
+                                            {featuredPost.title}
+                                        </h2>
+                                        <p className="text-sm opacity-70 leading-relaxed mb-6">
+                                            {featuredPost.excerpt}
+                                        </p>
+                                        <div className="flex items-center gap-4 text-xs opacity-50">
+                                            <span className="flex items-center gap-1.5">
+                                                <Calendar className="w-3.5 h-3.5" />
+                                                {new Date(featuredPost.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                                            </span>
+                                            <span className="flex items-center gap-1.5">
+                                                <Clock className="w-3.5 h-3.5" />
+                                                {featuredPost.readTime}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    {/* Visual */}
+                                    <div className={`hidden md:flex items-center justify-center bg-linear-to-br ${featuredPost.color} min-h-80`}>
+                                        <span className="text-8xl">{featuredPost.icon}</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </Link>
+                    )}
+
                     {/* Category Filter */}
-                    <div className="mb-12 flex flex-wrap gap-3">
+                    <div className="mb-10 flex flex-wrap gap-2">
                         {categories.map((category) => (
                             <button
                                 key={category}
-                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                                     category === 'All'
-                                        ? 'bg-brand-blue text-white'
-                                        : 'bg-subtle text-gray-700 hover:bg-gray-200'
+                                        ? 'bg-foreground text-background'
+                                        : 'bg-muted text-muted-foreground hover:bg-border'
                                 }`}
                             >
                                 {category}
@@ -101,69 +161,62 @@ export default function BlogPage() {
                         ))}
                     </div>
 
-                    {/* Blog Posts Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {blogPosts.map((post) => (
-                            <article
-                                key={post.slug}
-                                className="group bg-background border border-border rounded-2xl overflow-hidden hover:border-brand-blue transition-all duration-300 hover:shadow-lg"
-                            >
-                                {/* Featured Image Placeholder */}
-                                <div className="aspect-[16/9] bg-gradient-to-br from-brand-blue/10 to-purple-100 flex items-center justify-center">
-                                    <span className="text-sm text-gray-500">{post.category}</span>
-                                </div>
-
-                                <div className="p-6">
-                                    {/* Category & Read Time */}
-                                    <div className="flex items-center gap-3 text-xs text-gray-500 mb-3">
-                                        <span className="px-2 py-1 rounded bg-subtle font-medium">
-                                            {post.category}
-                                        </span>
-                                        <span>{post.readTime}</span>
+                    {/* Blog Posts */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {otherPosts.map((post) => (
+                            <Link key={post.slug} href={`/blog/${post.slug}`} className="block group">
+                                <article className="h-full bg-background border border-border rounded-xl p-6 hover:border-foreground/20 transition-all duration-200 flex gap-5">
+                                    {/* Icon */}
+                                    <div className={`shrink-0 w-14 h-14 rounded-xl bg-linear-to-br ${post.color} flex items-center justify-center text-2xl`}>
+                                        {post.icon}
                                     </div>
 
-                                    {/* Title */}
-                                    <h2 className="text-xl font-bold mb-3 tracking-tight group-hover:text-brand-blue transition-colors duration-200">
-                                        <Link href={`/blog/${post.slug}`}>
+                                    {/* Content */}
+                                    <div className="min-w-0">
+                                        <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
+                                            <span className="font-medium text-foreground/60">{post.category}</span>
+                                            <span>·</span>
+                                            <span>{post.readTime}</span>
+                                        </div>
+                                        <h2 className="text-base font-semibold mb-1.5 tracking-tight leading-snug group-hover:text-brand-blue transition-colors duration-200">
                                             {post.title}
-                                        </Link>
-                                    </h2>
-
-                                    {/* Excerpt */}
-                                    <p className="text-gray-700 text-sm leading-relaxed mb-4">
-                                        {post.excerpt}
-                                    </p>
-
-                                    {/* Meta */}
-                                    <div className="flex items-center justify-between text-xs text-gray-500 pt-4 border-t border-border">
-                                        <span>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-                                        <Link 
-                                            href={`/blog/${post.slug}`}
-                                            className="text-brand-blue font-medium hover:underline"
-                                        >
-                                            Read article →
-                                        </Link>
+                                        </h2>
+                                        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                                            {post.excerpt}
+                                        </p>
+                                        <div className="mt-3 flex items-center gap-1.5 text-xs text-brand-blue font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                            Read article <ArrowRight className="w-3 h-3" />
+                                        </div>
                                     </div>
-                                </div>
-                            </article>
+                                </article>
+                            </Link>
                         ))}
                     </div>
 
-                    {/* Coming Soon Notice */}
-                    <div className="mt-16 text-center bg-subtle rounded-2xl p-12">
-                        <h2 className="text-2xl font-bold mb-3 tracking-tight">
-                            More content coming soon
-                        </h2>
-                        <p className="text-gray-700 mb-6 max-w-xl mx-auto">
-                            We&apos;re actively working on detailed guides and case studies. 
-                            Subscribe to our newsletter to get notified when new content is published.
+                    {/* Coming Soon */}
+                    <div className="mt-16 text-center border border-border rounded-xl p-10">
+                        <p className="text-sm text-muted-foreground mb-2">More content coming soon</p>
+                        <p className="text-muted-foreground text-sm max-w-md mx-auto mb-5">
+                            Follow us for updates on new guides, case studies, and engineering insights.
                         </p>
-                        <Link 
-                            href="/#newsletter"
-                            className="inline-flex items-center gap-2 text-brand-blue font-medium hover:underline"
-                        >
-                            Subscribe to newsletter →
-                        </Link>
+                        <div className="flex items-center justify-center gap-6 text-sm">
+                            <Link
+                                href="https://linkedin.com/company/vyralabs"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-brand-blue font-medium hover:underline"
+                            >
+                                LinkedIn →
+                            </Link>
+                            <Link
+                                href="https://twitter.com/vyralabs"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-brand-blue font-medium hover:underline"
+                            >
+                                Twitter →
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </main>

@@ -11,6 +11,7 @@ import { Menu, X } from "lucide-react";
 const navItems = [
   { name: "What we do", href: "#services" },
   { name: "Why Vyra", href: "#values" },
+  { name: "Blog", href: "/blog" },
   { name: "Get started", href: "#contact" },
 ];
 
@@ -72,7 +73,14 @@ export function Header() {
             variant="secondary" 
             className="text-xs px-4 h-9"
           >
-            <a href="mailto:hello@vyralabs.systems">Book a call</a>
+            <a href="tel:+918309516983">Call us</a>
+          </Button>
+          <Button 
+            asChild
+            variant="accent" 
+            className="text-xs px-4 h-9"
+          >
+            <a href="mailto:hello@vyralabs.systems" target="_blank" rel="noopener noreferrer">Book a call</a>
           </Button>
         </nav>
 
@@ -110,11 +118,16 @@ export function Header() {
                 </Link>
               </motion.div>
             ))}
-            <div className="mt-4 flex items-center gap-4">
+            <div className="mt-4 flex flex-col items-center gap-3">
               <ThemeToggle />
+              <a href="tel:+918309516983" className="text-lg text-brand-blue font-medium">
+                +91 8309516983
+              </a>
               <Button asChild>
                 <a 
                   href="mailto:hello@vyralabs.systems"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Let&apos;s talk

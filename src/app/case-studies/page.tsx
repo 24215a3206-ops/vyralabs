@@ -28,7 +28,7 @@ const caseStudies = [
         image: '/case-studies/techflow.jpg',
         testimonial: {
             quote: "Vyra Labs transformed our vision into a production-ready SaaS platform in 8 weeks. Their technical expertise and design sensibility are unmatched.",
-            author: "Sarah Chen",
+            author: "Priya Sharma",
             role: "CEO & Founder, TechFlow"
         }
     },
@@ -49,7 +49,7 @@ const caseStudies = [
         image: '/case-studies/datasync.jpg',
         testimonial: {
             quote: "Working with Vyra felt like having a technical co-founder. They delivered something far better than we imagined.",
-            author: "Michael Rodriguez",
+            author: "Arjun Mehta",
             role: "VP of Product, DataSync"
         }
     },
@@ -70,7 +70,7 @@ const caseStudies = [
         image: '/case-studies/cloudmetrics.jpg',
         testimonial: {
             quote: "The quality-to-speed ratio is incredible. Vyra's code scaled with us from MVP to Series A.",
-            author: "Emily Watson",
+            author: "Neha Kapoor",
             role: "CTO, CloudMetrics"
         }
     }
@@ -104,10 +104,13 @@ export default function CaseStudiesPage() {
                             >
                                 {/* Image */}
                                 <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                                    <div className="aspect-[4/3] bg-gradient-to-br from-brand-blue/10 to-purple-100 rounded-2xl flex items-center justify-center">
+                                    <div className="aspect-4/3 bg-linear-to-br from-brand-blue/5 to-blue-50 dark:from-brand-blue/10 dark:to-gray-800 rounded-2xl flex items-center justify-center border border-border overflow-hidden">
                                         <div className="text-center p-8">
-                                            <h3 className="text-3xl font-bold mb-2">{study.title}</h3>
-                                            <p className="text-gray-600">Image coming soon</p>
+                                            <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-brand-blue/10 flex items-center justify-center">
+                                                <span className="text-3xl font-bold text-brand-blue">{study.title[0]}</span>
+                                            </div>
+                                            <h3 className="text-2xl font-bold mb-1">{study.title}</h3>
+                                            <p className="text-sm text-gray-500">{study.category}</p>
                                         </div>
                                     </div>
                                 </div>

@@ -107,12 +107,21 @@ export function FAQ() {
                     </h2>
                     <p className="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">
                         Everything you need to know about working with Vyra Labs. Can&apos;t find your answer? 
-                        Reach out to our team at{' '}
+                        Reach out at{' '}
                         <a 
                             href="mailto:hello@vyralabs.systems" 
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="text-brand-blue hover:underline"
                         >
                             hello@vyralabs.systems
+                        </a>
+                        {' '}or call{' '}
+                        <a 
+                            href="tel:+918309516983"
+                            className="text-brand-blue hover:underline"
+                        >
+                            +91 8309516983
                         </a>
                     </p>
                 </motion.div>

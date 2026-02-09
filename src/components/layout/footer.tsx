@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Mail, Linkedin, Twitter } from 'lucide-react'
+import { Mail, Linkedin, Twitter, Phone, MapPin } from 'lucide-react'
 
 export function Footer() {
     return (
@@ -12,13 +12,28 @@ export function Footer() {
                         <p className="text-sm text-gray-700 leading-relaxed mb-6 max-w-md">
                             Elite digital product studio. We craft high-performance products with world-class design and bulletproof engineering.
                         </p>
-                        <a 
-                            href="mailto:hello@vyralabs.systems" 
-                            className="inline-flex items-center gap-2 text-sm text-brand-blue hover:text-brand-blue-hover transition-colors duration-200"
-                        >
-                            <Mail className="w-4 h-4" />
-                            hello@vyralabs.systems
-                        </a>
+                        <div className="flex flex-col gap-3">
+                            <a 
+                                href="mailto:hello@vyralabs.systems" 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-sm text-brand-blue hover:text-brand-blue-hover transition-colors duration-200"
+                            >
+                                <Mail className="w-4 h-4" />
+                                hello@vyralabs.systems
+                            </a>
+                            <a 
+                                href="tel:+918309516983" 
+                                className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-foreground transition-colors duration-200"
+                            >
+                                <Phone className="w-4 h-4" />
+                                +91 8309516983
+                            </a>
+                            <div className="inline-flex items-center gap-2 text-sm text-gray-700">
+                                <MapPin className="w-4 h-4" />
+                                Hyderabad, Telangana, India
+                            </div>
+                        </div>
                     </div>
 
                     {/* Quick links */}
@@ -34,6 +49,16 @@ export function Footer() {
                                 <a href="#values" className="text-sm text-gray-700 hover:text-foreground transition-colors duration-200">
                                     Why Vyra
                                 </a>
+                            </li>
+                            <li>
+                                <Link href="/blog" className="text-sm text-gray-700 hover:text-foreground transition-colors duration-200">
+                                    Blog
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/case-studies" className="text-sm text-gray-700 hover:text-foreground transition-colors duration-200">
+                                    Case Studies
+                                </Link>
                             </li>
                             <li>
                                 <a href="#contact" className="text-sm text-gray-700 hover:text-foreground transition-colors duration-200">
