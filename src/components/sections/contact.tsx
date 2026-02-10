@@ -81,7 +81,11 @@ export function Contact() {
     }
 
     return (
-        <section id="contact" className="py-32 md:py-40 relative overflow-hidden bg-background">
+        <section id="contact" className="py-32 md:py-40 relative overflow-hidden bg-background noise-bg">
+            {/* Background elements */}
+            <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(0,102,255,0.06),transparent_60%)] animate-aurora blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(98,0,234,0.05),transparent_60%)] animate-float-delayed blur-3xl pointer-events-none" />
+            
             <div className="container mx-auto px-6 md:px-16 relative z-10 max-w-5xl">
                 <motion.div
                     initial={{ opacity: 0, y: 12 }}
@@ -90,10 +94,12 @@ export function Contact() {
                     transition={{ duration: 0.6, ease: [0.22, 0.03, 0.26, 1] }}
                     className="text-center mb-16"
                 >
+                    <span className="text-xs font-medium uppercase tracking-widest text-brand-blue mb-4 block">Get in touch</span>
                     <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-[-0.03em] leading-[1.05]">
-                        Let&apos;s build something exceptional.
+                        Let&apos;s build something{' '}
+                        <span className="gradient-text">exceptional.</span>
                     </h2>
-                    <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                         We accept 12-16 select projects each year. Share your vision below and we&apos;ll get back to you within 24 hours.
                     </p>
 
@@ -110,8 +116,6 @@ export function Contact() {
                         </a>
                         <a 
                             href="mailto:hello@vyralabs.systems" 
-                            target="_blank"
-                            rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 text-brand-blue hover:text-brand-blue-hover font-medium transition-colors"
                         >
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -119,7 +123,7 @@ export function Contact() {
                             </svg>
                             hello@vyralabs.systems
                         </a>
-                        <span className="inline-flex items-center gap-2 text-gray-600">
+                        <span className="inline-flex items-center gap-2 text-muted-foreground">
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -134,13 +138,15 @@ export function Contact() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 0.03, 0.26, 1] }}
-                    className="bg-subtle border border-border rounded-2xl p-8 md:p-12"
+                    className="relative bg-subtle border border-border rounded-2xl p-8 md:p-12 hover:border-brand-blue/20 transition-colors duration-500 overflow-hidden"
                 >
+                    {/* Form glow */}
+                    <div className="absolute inset-0 bg-[radial-gradient(600px_circle_at_50%_0%,rgba(0,102,255,0.04),transparent_50%)] pointer-events-none" />
                     {submitStatus === 'success' ? (
                         <div className="text-center py-12">
                             <CheckCircle2 className="w-16 h-16 text-green-600 mx-auto mb-6" />
                             <h3 className="text-2xl font-semibold mb-3">Thank you for reaching out!</h3>
-                            <p className="text-gray-700 mb-6">
+                            <p className="text-muted-foreground mb-6">
                                 We&apos;ve received your message and will get back to you within 24 hours.
                             </p>
                             <Button 
@@ -239,9 +245,9 @@ export function Contact() {
                             </div>
 
                             {submitStatus === 'error' && (
-                                <div className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-lg">
-                                    <AlertCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                                    <p className="text-sm text-red-800">{errorMessage}</p>
+                                <div className="flex items-start gap-3 p-4 bg-error/10 border border-error/20 rounded-lg">
+                                    <AlertCircle className="w-5 h-5 text-error shrink-0 mt-0.5" />
+                                    <p className="text-sm text-error">{errorMessage}</p>
                                 </div>
                             )}
 
@@ -261,7 +267,7 @@ export function Contact() {
                                 )}
                             </Button>
 
-                            <p className="text-xs text-gray-500 text-center">
+                            <p className="text-xs text-muted-foreground text-center">
                                 By submitting this form, you agree to our{' '}
                                 <a href="/privacy" className="text-brand-blue hover:underline">Privacy Policy</a>
                                 {' '}and{' '}
@@ -273,11 +279,11 @@ export function Contact() {
 
                 {/* Trust indicators */}
                 <div className="mt-16 pt-8 border-t border-border max-w-3xl mx-auto">
-                    <p className="text-sm text-gray-500 mb-4 text-center">Trusted by startups and enterprises</p>
-                    <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-xs text-gray-400 uppercase tracking-wider font-medium">
+                    <p className="text-sm text-muted-foreground mb-4 text-center">Trusted by startups and enterprises</p>
+                    <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-xs text-muted-foreground uppercase tracking-wider font-medium">
                         <span>4-12 week delivery</span>
                         <span className="hidden sm:inline">•</span>
-                        <span>100% satisfaction rate</span>
+                        <span>98% satisfaction rate</span>
                         <span className="hidden sm:inline">•</span>
                         <span>Elite quality guaranteed</span>
                     </div>

@@ -2,22 +2,33 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { name: "What we do", href: "#services" },
-  { name: "Why Vyra", href: "#values" },
+  { name: "What we do", href: "/#services" },
+  { name: "Why Vyra", href: "/#values" },
+  { name: "Case Studies", href: "/case-studies" },
   { name: "Blog", href: "/blog" },
-  { name: "Get started", href: "#contact" },
+  { name: "Get started", href: "/#contact" },
 ];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -80,7 +91,7 @@ export function Header() {
             variant="accent" 
             className="text-xs px-4 h-9"
           >
-            <a href="mailto:hello@vyralabs.systems" target="_blank" rel="noopener noreferrer">Book a call</a>
+            <a href="mailto:hello@vyralabs.systems">Email us</a>
           </Button>
         </nav>
 
@@ -94,14 +105,15 @@ export function Header() {
         </button>
 
         {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-center gap-8"
-          >
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-center gap-8"
+            >
             {navItems.map((item, index) => (
               <motion.div
                 key={item.name}
@@ -126,16 +138,15 @@ export function Header() {
               <Button asChild>
                 <a 
                   href="mailto:hello@vyralabs.systems"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Let&apos;s talk
+                  Email us
                 </a>
               </Button>
             </div>
-          </motion.div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.header>
   );

@@ -1,8 +1,10 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export function KeyboardShortcuts() {
+  const [showHelp, setShowHelp] = useState(false)
+
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       // Only trigger if not in input/textarea
@@ -16,7 +18,6 @@ export function KeyboardShortcuts() {
       // Shortcuts
       switch (e.key.toLowerCase()) {
         case 'c':
-          // Press 'C' to scroll to contact
           if (e.shiftKey) {
             e.preventDefault()
             document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
@@ -24,7 +25,6 @@ export function KeyboardShortcuts() {
           break
         
         case 's':
-          // Press 'S' to scroll to services
           if (e.shiftKey) {
             e.preventDefault()
             document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' })
@@ -32,7 +32,6 @@ export function KeyboardShortcuts() {
           break
         
         case 't':
-          // Press 'T' to toggle theme
           if (e.shiftKey) {
             e.preventDefault()
             const themeToggle = document.querySelector('[aria-label*="theme"]') as HTMLButtonElement
@@ -41,22 +40,13 @@ export function KeyboardShortcuts() {
           break
         
         case '?':
-          // Press '?' to show shortcuts help
           if (e.shiftKey) {
             e.preventDefault()
-            alert(`Keyboard Shortcuts:
-            
-Shift + C - Jump to Contact
-Shift + S - Jump to Services
-Shift + T - Toggle Theme
-Shift + H - Back to Top
-              
-Esc - Close mobile menu`)
+            setShowHelp(prev => !prev)
           }
           break
         
         case 'h':
-          // Press 'H' to go to top
           if (e.shiftKey) {
             e.preventDefault()
             window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -64,8 +54,8 @@ Esc - Close mobile menu`)
           break
       }
 
-      // ESC to close mobile menu
       if (e.key === 'Escape') {
+        setShowHelp(false)
         const mobileMenuButton = document.querySelector('[aria-label="Toggle menu"]') as HTMLButtonElement
         if (mobileMenuButton) {
           const isOpen = document.querySelector('.fixed.inset-0.bg-background')
@@ -80,5 +70,40 @@ Esc - Close mobile menu`)
     return () => document.removeEventListener('keydown', handleKeyPress)
   }, [])
 
-  return null
+  if (!showHelp) return null
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-foreground/50 backdrop-blur-sm"
+      onClick={() => setShowHelp(false)}
+    >
+      <div
+        className="bg-background border border-border rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h3 className="text-lg font-semibold mb-5 tracking-tight">Keyboard Shortcuts</h3>
+        <div className="space-y-3">
+          {[
+            ['Shift + C', 'Jump to Contact'],
+            ['Shift + S', 'Jump to Services'],
+            ['Shift + T', 'Toggle Theme'],
+            ['Shift + H', 'Back to Top'],
+            ['Shift + ?', 'This dialog'],
+            ['Esc', 'Close menu / dialog'],
+          ].map(([key, desc]) => (
+            <div key={key} className="flex items-center justify-between">
+              <span className="text-sm text-muted-foreground">{desc}</span>
+              <kbd className="px-2 py-1 rounded bg-muted text-xs font-mono font-medium">{key}</kbd>
+            </div>
+          ))}
+        </div>
+        <button
+          onClick={() => setShowHelp(false)}
+          className="mt-6 w-full py-2.5 rounded-lg bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
+        >
+          Got it
+        </button>
+      </div>
+    </div>
+  )
 }

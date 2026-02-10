@@ -40,7 +40,7 @@ const faqs: FAQItem[] = [
     },
     {
         question: "What if I'm not satisfied with the work?",
-        answer: "We've maintained a 100% satisfaction rate by staying in constant communication. Every milestone requires your approval before we proceed. If you're ever unhappy, we'll work until it's right—no additional cost. Our reputation depends on your success, which is why we're selective about projects we take on."
+        answer: "We've maintained a 98% satisfaction rate by staying in constant communication. Every milestone requires your approval before we proceed. If you're ever unhappy, we'll work until it's right—no additional cost. Our reputation depends on your success, which is why we're selective about projects we take on."
     }
 ]
 
@@ -81,7 +81,7 @@ function FAQAccordion({ faq, index }: { faq: FAQItem; index: number }) {
                         transition={{ duration: 0.3, ease: [0.22, 0.03, 0.26, 1] }}
                         className="overflow-hidden"
                     >
-                        <p className="text-gray-700 leading-relaxed pb-6 pr-10">
+                        <p className="text-muted-foreground leading-relaxed pb-6 pr-10">
                             {faq.answer}
                         </p>
                     </motion.div>
@@ -93,8 +93,11 @@ function FAQAccordion({ faq, index }: { faq: FAQItem; index: number }) {
 
 export function FAQ() {
     return (
-        <section className="py-32 md:py-40 bg-muted border-y border-border">
-            <div className="container mx-auto px-6 md:px-16 max-w-4xl">
+        <section className="py-32 md:py-40 bg-background relative overflow-hidden noise-bg">
+            {/* Background accent */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(0,102,255,0.04),transparent_60%)] pointer-events-none blur-3xl" />
+            
+            <div className="container mx-auto px-6 md:px-16 max-w-4xl relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -102,16 +105,16 @@ export function FAQ() {
                     transition={{ duration: 0.5, ease: [0.22, 0.03, 0.26, 1] }}
                     className="text-center mb-16"
                 >
+                    <span className="text-xs font-medium uppercase tracking-widest text-brand-blue mb-4 block">FAQ</span>
                     <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-[-0.02em]">
-                        Frequently asked questions
+                        Questions?{' '}
+                        <span className="gradient-text">Answered.</span>
                     </h2>
-                    <p className="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
                         Everything you need to know about working with Vyra Labs. Can&apos;t find your answer? 
                         Reach out at{' '}
                         <a 
                             href="mailto:hello@vyralabs.systems" 
-                            target="_blank"
-                            rel="noopener noreferrer"
                             className="text-brand-blue hover:underline"
                         >
                             hello@vyralabs.systems

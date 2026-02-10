@@ -16,6 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://vyralabs.systems'),
   title: {
     default: "Vyra Labs — Elite Digital Product Studio",
     template: "%s | Vyra Labs"
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
     url: "https://vyralabs.systems",
     siteName: "Vyra Labs",
     images: [{
-      url: '/og-image.png',
+      url: '/opengraph-image',
       width: 1200,
       height: 630,
       alt: 'Vyra Labs — Elite Digital Product Studio',
@@ -76,7 +77,7 @@ export const metadata: Metadata = {
     title: "Vyra Labs — Elite Digital Product Studio",
     description: "Where design agencies end and engineering firms begin. High-performance digital products with world-class design and bulletproof engineering.",
     images: [{
-      url: '/og-image.png',
+      url: '/opengraph-image',
       alt: 'Vyra Labs — Elite Digital Product Studio'
     }],
   },

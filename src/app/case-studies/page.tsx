@@ -87,7 +87,7 @@ export default function CaseStudiesPage() {
                         <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-[-0.02em]">
                             Case Studies
                         </h1>
-                        <p className="text-xl text-gray-700 leading-relaxed">
+                        <p className="text-xl text-muted-foreground leading-relaxed">
                             Real results from real projects. See how we&apos;ve helped startups and enterprises 
                             build products that drive growth, raise funding, and scale successfully.
                         </p>
@@ -98,9 +98,7 @@ export default function CaseStudiesPage() {
                         {caseStudies.map((study, index) => (
                             <div 
                                 key={study.id}
-                                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                                    index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                                }`}
+                                className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
                             >
                                 {/* Image */}
                                 <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
@@ -110,7 +108,7 @@ export default function CaseStudiesPage() {
                                                 <span className="text-3xl font-bold text-brand-blue">{study.title[0]}</span>
                                             </div>
                                             <h3 className="text-2xl font-bold mb-1">{study.title}</h3>
-                                            <p className="text-sm text-gray-500">{study.category}</p>
+                                            <p className="text-sm text-muted-foreground">{study.category}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -127,30 +125,30 @@ export default function CaseStudiesPage() {
 
                                     <div className="space-y-6 mb-8">
                                         <div>
-                                            <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                                            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">
                                                 Challenge
                                             </h3>
-                                            <p className="text-gray-700 leading-relaxed">
+                                            <p className="text-muted-foreground leading-relaxed">
                                                 {study.challenge}
                                             </p>
                                         </div>
 
                                         <div>
-                                            <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                                            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">
                                                 Solution
                                             </h3>
-                                            <p className="text-gray-700 leading-relaxed">
+                                            <p className="text-muted-foreground leading-relaxed">
                                                 {study.solution}
                                             </p>
                                         </div>
 
                                         <div>
-                                            <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                                            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
                                                 Results
                                             </h3>
                                             <ul className="space-y-2">
                                                 {study.results.map((result, i) => (
-                                                    <li key={i} className="flex items-start gap-3 text-gray-700">
+                                                    <li key={i} className="flex items-start gap-3 text-muted-foreground">
                                                         <span className="text-brand-blue mt-1">✓</span>
                                                         <span>{result}</span>
                                                     </li>
@@ -159,7 +157,7 @@ export default function CaseStudiesPage() {
                                         </div>
 
                                         <div>
-                                            <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                                            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
                                                 Technologies
                                             </h3>
                                             <div className="flex flex-wrap gap-2">
@@ -177,12 +175,12 @@ export default function CaseStudiesPage() {
 
                                     {/* Testimonial */}
                                     <div className="border-l-2 border-brand-blue pl-6 py-4 bg-subtle/50 rounded-r-lg">
-                                        <p className="text-gray-700 italic mb-3">
+                                        <p className="text-muted-foreground italic mb-3">
                                             &ldquo;{study.testimonial.quote}&rdquo;
                                         </p>
                                         <div className="text-sm">
                                             <div className="font-semibold">{study.testimonial.author}</div>
-                                            <div className="text-gray-600">{study.testimonial.role}</div>
+                                            <div className="text-muted-foreground">{study.testimonial.role}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -195,7 +193,7 @@ export default function CaseStudiesPage() {
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
                             Ready to be our next success story?
                         </h2>
-                        <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+                        <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                             We&apos;re currently accepting projects for Q2 2026. Let&apos;s discuss how we can 
                             help you achieve similar results.
                         </p>

@@ -10,14 +10,14 @@ export default function NotFound() {
             <div className="max-w-2xl w-full text-center">
                 {/* 404 Visual */}
                 <div className="mb-12">
-                    <h1 className="text-9xl md:text-[12rem] font-bold tracking-tighter text-gray-200 leading-none">
+                    <h1 className="text-9xl md:text-[12rem] font-bold tracking-tighter text-foreground/10 leading-none">
                         404
                     </h1>
                     <div className="-mt-8">
                         <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">
                             Page not found
                         </h2>
-                        <p className="text-lg text-gray-700 leading-relaxed max-w-md mx-auto">
+                        <p className="text-lg text-muted-foreground leading-relaxed max-w-md mx-auto">
                             Sorry, we couldn&apos;t find the page you&apos;re looking for. 
                             It might have been moved or doesn&apos;t exist.
                         </p>
@@ -44,7 +44,7 @@ export default function NotFound() {
 
                 {/* Helpful links */}
                 <div className="mt-16 pt-8 border-t border-border">
-                    <p className="text-sm text-gray-500 mb-4">Popular pages</p>
+                    <p className="text-sm text-muted-foreground mb-4">Popular pages</p>
                     <div className="flex flex-wrap justify-center gap-4 text-sm">
                         <Link 
                             href="/#services" 
@@ -52,21 +52,21 @@ export default function NotFound() {
                         >
                             What we do
                         </Link>
-                        <span className="text-gray-300">•</span>
+                        <span className="text-border">•</span>
                         <Link 
                             href="/#values" 
                             className="text-brand-blue hover:underline"
                         >
                             Why Vyra
                         </Link>
-                        <span className="text-gray-300">•</span>
+                        <span className="text-border">•</span>
                         <Link 
                             href="/#contact" 
                             className="text-brand-blue hover:underline"
                         >
                             Contact us
                         </Link>
-                        <span className="text-gray-300">•</span>
+                        <span className="text-border">•</span>
                         <Link 
                             href="/privacy" 
                             className="text-brand-blue hover:underline"

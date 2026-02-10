@@ -1,8 +1,12 @@
 import { Header } from '@/components/layout/header'
 import { Hero } from '@/components/sections/hero'
+
+import { AnimatedStats } from '@/components/sections/animated-stats'
 import { Services } from '@/components/sections/services'
 import { Values } from '@/components/sections/values'
 import { Testimonials } from '@/components/sections/testimonials'
+import { CaseStudiesShowcase } from '@/components/sections/case-studies-showcase'
+import { Process } from '@/components/sections/process'
 import { FAQ } from '@/components/sections/faq'
 import { Contact } from '@/components/sections/contact'
 import { Footer } from '@/components/layout/footer'
@@ -39,7 +43,7 @@ const faqs = [
   },
   {
     question: "What if I'm not satisfied with the work?",
-    answer: "We've maintained a 100% satisfaction rate by staying in constant communication. Every milestone requires your approval before we proceed."
+    answer: "We've maintained a 98% satisfaction rate by staying in constant communication. Every milestone requires your approval before we proceed."
   }
 ]
 
@@ -75,9 +79,12 @@ export default function Home() {
       <main id="main-content" className="min-h-screen bg-background text-foreground overflow-x-hidden">
         <Header />
         <Hero />
+        <AnimatedStats />
         <Services />
         <Values />
         <Testimonials />
+        <CaseStudiesShowcase />
+        <Process />
         <FAQ />
         <Contact />
         <Footer />
