@@ -39,81 +39,87 @@ export function Header() {
   }, []);
 
   return (
-    <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border py-4"
-          : "bg-transparent py-5"
-      }`}
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.4, ease: [0.22, 0.03, 0.26, 1] }}
-    >
-      <div className="container mx-auto px-6 md:px-16 flex items-center justify-between max-w-7xl">
-        <Link
-          href="/"
-          className="flex items-center gap-3 z-50 hover:opacity-80 transition-opacity duration-200"
-        >
-          <Image
-            src="/icon.svg"
-            alt="Vyra Labs"
-            width={40}
-            height={40}
-            className="w-10 h-10"
-            priority
-          />
-          <span className="text-lg font-semibold tracking-tight">
-            Vyra Labs
-          </span>
-        </Link>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-200"
-            >
-              {item.name}
-            </Link>
-          ))}
-          <ThemeToggle />
-          <Button 
-            asChild
-            variant="secondary" 
-            className="text-xs px-4 h-9"
+    <>
+      <motion.header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-background/80 backdrop-blur-xl border-b border-border py-4"
+            : "bg-transparent py-5"
+        }`}
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.4, ease: [0.22, 0.03, 0.26, 1] }}
+      >
+        <div className="container mx-auto px-6 md:px-16 flex items-center justify-between max-w-7xl">
+          <Link
+            href="/"
+            className="flex items-center gap-3 z-[100] relative hover:opacity-80 transition-opacity duration-200"
+            onClick={() => setMobileMenuOpen(false)}
           >
-            <a href="tel:+918309516983">Call us</a>
-          </Button>
-          <Button 
-            asChild
-            variant="accent" 
-            className="text-xs px-4 h-9"
-          >
-            <a href="mailto:hello@vyralabs.systems">Email us</a>
-          </Button>
-        </nav>
+            <Image
+              src="/icon.svg"
+              alt="Vyra Labs"
+              width={40}
+              height={40}
+              className="w-10 h-10"
+              priority
+            />
+            <span className="text-lg font-semibold tracking-tight">
+              Vyra Labs
+            </span>
+          </Link>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden z-50 p-2 text-foreground hover:opacity-60 transition-opacity duration-200"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-center gap-8"
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-6">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-200"
+              >
+                {item.name}
+              </Link>
+            ))}
+            <ThemeToggle />
+            <Button 
+              asChild
+              variant="secondary" 
+              className="text-xs px-4 h-9"
             >
+              <a href="tel:+918309516983">Call us</a>
+            </Button>
+            <Button 
+              asChild
+              variant="accent" 
+              className="text-xs px-4 h-9"
+            >
+              <a href="mailto:hello@vyralabs.systems">Email us</a>
+            </Button>
+          </nav>
+
+          {/* Mobile Toggle */}
+          <button
+            className="md:hidden z-[100] relative p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-foreground hover:opacity-60 transition-opacity duration-200 -mr-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </motion.header>
+
+      {/* Mobile Menu - Outside header for proper layering */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[90] bg-background flex flex-col items-center justify-center gap-6 sm:gap-8 px-6"
+            style={{ backgroundColor: 'var(--background)' }}
+          >
             {navItems.map((item, index) => (
               <motion.div
                 key={item.name}
@@ -144,10 +150,9 @@ export function Header() {
                 </a>
               </Button>
             </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </motion.header>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

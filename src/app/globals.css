@@ -87,6 +87,31 @@
   border-color: var(--border);
 }
 
+/* Safe area insets for modern mobile devices (notches, home indicators) */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .fixed-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Minimum touch target sizes for mobile (WCAG 2.5.5) */
+@media (pointer: coarse) {
+  button,
+  a,
+  input,
+  select,
+  textarea,
+  [role="button"] {
+    min-height: 44px;
+  }
+  
+  a:not(.inline-link) {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

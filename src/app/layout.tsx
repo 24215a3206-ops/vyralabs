@@ -18,10 +18,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://vyralabs.systems'),
   title: {
-    default: "Vyra Labs — Elite Digital Product Studio",
-    template: "%s | Vyra Labs"
+    default: "Vyra Labs | Elite Digital Product Studio | SaaS MVP Development",
+    template: "%s | Vyra Labs - Digital Product Studio"
   },
-  description: "Where design agencies end and engineering firms begin. We craft high-performance digital products with founder-level clarity, world-class design, and bulletproof engineering. From zero to launch in weeks, not months.",
+  description: "Vyra Labs is an elite digital product studio specializing in SaaS MVP development, high-performance websites, and enterprise tools. We craft world-class digital products with founder-level clarity and bulletproof engineering. From zero to launch in weeks, not months.",
   icons: {
     icon: [
       { url: '/icon', sizes: '32x32', type: 'image/png' },
@@ -29,7 +29,11 @@ export const metadata: Metadata = {
     ],
     apple: { url: '/apple-icon', sizes: '180x180', type: 'image/png' },
   },
+  manifest: '/manifest.json',
   keywords: [
+    "Vyra Labs",
+    "VyraLabs",
+    "vyralabs.systems",
     "digital product studio",
     "SaaS MVP development",
     "high-performance web development",
@@ -41,7 +45,10 @@ export const metadata: Metadata = {
     "UI/UX design engineering",
     "rapid prototyping",
     "technical co-founder alternative",
-    "enterprise web applications"
+    "enterprise web applications",
+    "web development agency",
+    "software development company",
+    "Hyderabad tech startup"
   ],
   authors: [{ name: "Vyra Labs", url: "https://vyralabs.systems" }],
   creator: "Vyra Labs",
@@ -56,8 +63,8 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Vyra Labs — Elite Digital Product Studio",
-    description: "Where design agencies end and engineering firms begin. High-performance digital products built with founder-level clarity and world-class engineering.",
+    title: "Vyra Labs | Elite Digital Product Studio | SaaS MVP Development",
+    description: "Vyra Labs builds high-performance digital products with founder-level clarity and world-class engineering. SaaS MVPs, enterprise tools, and conversion-optimized websites.",
     type: "website",
     locale: "en_US",
     url: "https://vyralabs.systems",
@@ -74,8 +81,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@vyralabs",
     creator: "@vyralabs",
-    title: "Vyra Labs — Elite Digital Product Studio",
-    description: "Where design agencies end and engineering firms begin. High-performance digital products with world-class design and bulletproof engineering.",
+    title: "Vyra Labs | Elite Digital Product Studio | SaaS MVP Development",
+    description: "Vyra Labs builds high-performance digital products - SaaS MVPs, enterprise tools, and websites. World-class design meets bulletproof engineering.",
     images: [{
       url: '/opengraph-image',
       alt: 'Vyra Labs — Elite Digital Product Studio'

@@ -50,7 +50,7 @@ export function Process() {
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">A proven process that&apos;s delivered many successful projects.</p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 relative">
                     {/* Connecting line - desktop only */}
                     <div className="hidden md:block absolute top-16 left-[12.5%] right-[12.5%] h-[2px] bg-border" />
                     
@@ -61,7 +61,7 @@ export function Process() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: '-50px' }}
                             transition={{ delay: index * 0.12, duration: 0.6, ease: [0.22, 0.03, 0.26, 1] }}
-                            className="relative group text-center"
+                            className="relative group text-center p-2 sm:p-0"
                         >
                             {/* Step circle */}
                             <div className="relative mx-auto mb-6">
@@ -70,9 +70,9 @@ export function Process() {
                                 </div>
                             </div>
                             
-                            <span className="text-[11px] font-semibold uppercase tracking-widest text-brand-blue mb-2 block">{step.duration}</span>
-                            <h3 className="text-lg font-semibold mb-2 tracking-tight">{step.title}</h3>
-                            <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                            <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest text-brand-blue mb-2 block">{step.duration}</span>
+                            <h3 className="text-base sm:text-lg font-semibold mb-2 tracking-tight">{step.title}</h3>
+                            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{step.description}</p>
                         </motion.div>
                     ))}
                 </div>

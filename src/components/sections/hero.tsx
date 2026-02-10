@@ -37,7 +37,7 @@ export function Hero() {
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#0000000a_1px,transparent_1px),linear-gradient(to_bottom,#0000000a_1px,transparent_1px)] bg-size-[48px_48px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
 
             {/* Content */}
-            <motion.div style={{ opacity }} className="container relative z-10 px-6 md:px-16 max-w-7xl pt-32">
+            <motion.div style={{ opacity }} className="container relative z-10 px-4 sm:px-6 md:px-16 max-w-7xl pt-28 sm:pt-32 pb-12">
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
@@ -57,11 +57,12 @@ export function Hero() {
                         Now accepting Q2 2026 projects — Limited availability
                     </motion.div>
 
-                    {/* Main heading */}
+                    {/* Main heading - includes brand name for SEO */}
                     <motion.h1 
                         variants={staggerItem}
-                        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-[-0.04em] text-foreground leading-[0.95] mb-8"
+                        className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-[-0.04em] text-foreground leading-[0.95] mb-6 sm:mb-8"
                     >
+                        <span className="sr-only">Vyra Labs — </span>
                         Where vision
                         <br />
                         <span className="relative inline-block">
@@ -79,17 +80,17 @@ export function Hero() {
                     {/* Supporting text */}
                     <motion.p 
                         variants={staggerItem}
-                        className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-14 max-w-2xl leading-relaxed"
+                        className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-10 sm:mb-14 max-w-2xl leading-relaxed"
                     >
                         Elite digital products built with founder-level clarity, world-class design, and bulletproof engineering. 
                         We ship high-performance SaaS MVPs, conversion-optimized websites, and enterprise-grade tools in weeks, not months.
                     </motion.p>
 
                     {/* CTA with enhanced buttons */}
-                    <motion.div variants={staggerItem} className="flex flex-col sm:flex-row items-start gap-4">
-                        <a href="#contact" className="no-underline">
-                            <Button variant="accent" className="group h-12 px-8 text-sm relative overflow-hidden">
-                                <span className="relative z-10 flex items-center">
+                    <motion.div variants={staggerItem} className="flex flex-col sm:flex-row items-stretch sm:items-start gap-4">
+                        <a href="#contact" className="no-underline w-full sm:w-auto">
+                            <Button variant="accent" className="group h-12 px-8 text-sm relative overflow-hidden w-full sm:w-auto">
+                                <span className="relative z-10 flex items-center justify-center">
                                     Start your project
                                     <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                                 </span>
@@ -101,8 +102,8 @@ export function Hero() {
                                 />
                             </Button>
                         </a>
-                        <a href="#services" className="no-underline">
-                            <Button variant="ghost" className="h-12 px-8 text-sm group border border-border hover:border-brand-blue transition-colors duration-300">
+                        <a href="#services" className="no-underline w-full sm:w-auto">
+                            <Button variant="ghost" className="h-12 px-8 text-sm group border border-border hover:border-brand-blue transition-colors duration-300 w-full sm:w-auto">
                                 Explore what we do
                                 <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">↓</span>
                             </Button>

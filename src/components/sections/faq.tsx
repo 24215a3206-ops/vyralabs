@@ -57,10 +57,10 @@ function FAQAccordion({ faq, index }: { faq: FAQItem; index: number }) {
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full py-6 flex items-start justify-between gap-4 text-left group hover:opacity-80 transition-opacity duration-200"
+                className="w-full py-5 sm:py-6 flex items-start justify-between gap-4 text-left group hover:opacity-80 transition-opacity duration-200"
                 aria-expanded={isOpen}
             >
-                <span className="text-lg font-semibold pr-8 tracking-tight">
+                <span className="text-base sm:text-lg font-semibold pr-4 sm:pr-8 tracking-tight">
                     {faq.question}
                 </span>
                 <span className="shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-subtle border border-border group-hover:border-brand-blue transition-colors duration-200">

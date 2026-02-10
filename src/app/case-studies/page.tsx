@@ -6,8 +6,17 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-    title: 'Case Studies',
-    description: 'Explore how Vyra Labs has helped startups and enterprises build world-class digital products.',
+    title: 'Case Studies | Vyra Labs Portfolio',
+    description: 'Explore how Vyra Labs has helped startups and enterprises build world-class digital products. Real results from SaaS MVPs, enterprise tools, and marketing websites.',
+    alternates: {
+        canonical: 'https://vyralabs.systems/case-studies'
+    },
+    openGraph: {
+        title: 'Case Studies | Vyra Labs Portfolio',
+        description: 'Explore how Vyra Labs has helped startups and enterprises build world-class digital products.',
+        url: 'https://vyralabs.systems/case-studies',
+        type: 'website'
+    }
 }
 
 const caseStudies = [

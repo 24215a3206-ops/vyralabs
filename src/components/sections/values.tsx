@@ -28,7 +28,7 @@ export function Values() {
     return (
         <section id="values" className="py-32 md:py-40 bg-muted border-y border-border relative overflow-hidden">
             <div className="container mx-auto px-6 md:px-16 max-w-7xl relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
                     <div className="lg:sticky lg:top-32">
                         <motion.span
                             initial={{ opacity: 0, y: 8 }}
@@ -76,7 +76,7 @@ export function Values() {
                             </div>
                         </motion.div>
                     </div>
-
+                    
                     <div className="space-y-6">
                         {values.map((value, index) => (
                             <motion.div

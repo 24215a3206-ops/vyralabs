@@ -68,7 +68,7 @@ export function Testimonials() {
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                     {testimonials.map((testimonial, index) => (
                         <motion.div
                             key={index}
@@ -78,7 +78,7 @@ export function Testimonials() {
                             transition={{ delay: index * 0.12, duration: 0.7, ease: [0.22, 0.03, 0.26, 1] }}
                             className="group relative"
                         >
-                            <div className="h-full bg-subtle border border-border rounded-2xl p-8 hover:border-foreground/20 transition-all duration-500 flex flex-col relative overflow-hidden">
+                            <div className="h-full bg-subtle border border-border rounded-2xl p-6 md:p-8 hover:border-foreground/20 transition-all duration-500 flex flex-col relative overflow-hidden">
                                 <div className="relative z-10 flex flex-col h-full">
                                     {/* Stars */}
                                     <div className="flex gap-1 mb-4">

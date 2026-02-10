@@ -45,11 +45,18 @@ function AnimatedCounter({ end, suffix = '', prefix = '', duration = 2 }: Counte
     )
 }
 
-const stats = [
+interface StatItem {
+    value: number
+    suffix: string
+    label: string
+    description: string
+}
+
+const stats: StatItem[] = [
     { value: 8, suffix: '+', label: 'Projects Delivered', description: 'With Different Requirements' },
     { value: 98, suffix: '%', label: 'Client Satisfaction', description: 'Based on post-project surveys' },
     { value: 340, suffix: '%', label: 'Avg. Conversion Lift', description: 'Measured ROI improvement' },
-    { value: 6 , suffix: 'weeks', label: 'Average Delivery', description: 'From kickoff to launch' },
+    { value: 24, suffix: 'h', label: 'Response Time', description: 'From inquiry to first call' },
 ]
 
 export function AnimatedStats() {
@@ -67,7 +74,7 @@ export function AnimatedStats() {
                     <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Impact that speaks for itself</h2>
                 </motion.div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
                     {stats.map((stat, index) => (
                         <motion.div
                             key={stat.label}
@@ -77,12 +84,12 @@ export function AnimatedStats() {
                             transition={{ delay: index * 0.1, duration: 0.6, ease: [0.22, 0.03, 0.26, 1] }}
                             className="relative group"
                         >
-                            <div className="text-center p-8 rounded-2xl bg-subtle border border-border hover:border-foreground/20 transition-colors duration-300">
-                                <div className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 tracking-tight">
+                            <div className="text-center p-4 sm:p-6 md:p-8 rounded-2xl bg-subtle border border-border hover:border-foreground/20 transition-colors duration-300">
+                                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 tracking-tight whitespace-nowrap">
                                     <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                                 </div>
-                                <div className="text-sm font-semibold text-foreground mb-1">{stat.label}</div>
-                                <div className="text-xs text-muted-foreground">{stat.description}</div>
+                                <div className="text-xs sm:text-sm font-semibold text-foreground mb-1">{stat.label}</div>
+                                <div className="text-[10px] sm:text-xs text-muted-foreground line-clamp-2">{stat.description}</div>
                             </div>
                         </motion.div>
                     ))}

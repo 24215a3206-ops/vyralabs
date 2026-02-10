@@ -58,7 +58,11 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ delay: index * 0.15, duration: 0.7, ease: [0.22, 0.03, 0.26, 1] }}
-            style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
+            style={{ 
+                rotateX: typeof window !== 'undefined' && window.innerWidth > 768 ? rotateX : 0, 
+                rotateY: typeof window !== 'undefined' && window.innerWidth > 768 ? rotateY : 0, 
+                transformStyle: 'preserve-3d' 
+            }}
             onMouseMove={handleMouse}
             onMouseLeave={handleMouseLeave}
             className="group relative"
@@ -133,7 +137,7 @@ export function Services() {
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                     {services.map((service, index) => (
                         <ServiceCard key={index} service={service} index={index} />
                     ))}

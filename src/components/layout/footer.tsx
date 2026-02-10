@@ -20,9 +20,9 @@ export function Footer() {
                     </a>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 mb-12">
                     {/* Brand column */}
-                    <div className="md:col-span-5">
+                    <div className="sm:col-span-2 md:col-span-5">
                         <div className="flex items-center gap-3 mb-4">
                             <div className="w-10 h-10 rounded-xl bg-linear-to-br from-brand-blue to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-md">
                                 V
@@ -57,7 +57,7 @@ export function Footer() {
                     {/* Quick links */}
                     <div className="md:col-span-3">
                         <h4 className="text-sm font-semibold mb-4 tracking-tight uppercase text-muted-foreground">Navigation</h4>
-                        <ul className="space-y-3">
+                        <ul className="space-y-2 sm:space-y-3">
                             <li>
                                 <Link href="/#services" className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">
                                     What we do
@@ -113,11 +113,11 @@ export function Footer() {
                 </div>
 
                 {/* Bottom bar */}
-                <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
                     <div className="text-xs text-muted-foreground">
                         &copy; {new Date().getFullYear()} Vyra Labs. All rights reserved.
                     </div>
-                    <div className="flex items-center gap-6 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-4 sm:gap-6 text-xs text-muted-foreground">
                         <Link href="/privacy" className="hover:text-foreground transition-colors duration-200">
                             Privacy Policy
                         </Link>

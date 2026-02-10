@@ -1,0 +1,37 @@
+{
+  "name": "Vyra Labs - Elite Digital Product Studio",
+  "short_name": "Vyra Labs",
+  "description": "Vyra Labs is an elite digital product studio specializing in SaaS MVP development, high-performance websites, and enterprise tools.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0066FF",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Contact Us",
+      "short_name": "Contact",
+      "description": "Start your project with Vyra Labs",
+      "url": "/#contact",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Our Services",
+      "short_name": "Services",
+      "description": "Explore what Vyra Labs offers",
+      "url": "/#services",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    }
+  ]
+}

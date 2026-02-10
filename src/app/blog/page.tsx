@@ -5,8 +5,17 @@ import Link from 'next/link'
 import { ArrowRight, Clock, Calendar } from 'lucide-react'
 
 export const metadata: Metadata = {
-    title: 'Blog & Resources',
-    description: 'Insights on product development, startup growth, and technical best practices from Vyra Labs.',
+    title: 'Blog & Resources | Vyra Labs Insights',
+    description: 'Insights on product development, startup growth, and technical best practices from Vyra Labs. Expert guides on MVP development, Next.js, SaaS tech stack, and more.',
+    alternates: {
+        canonical: 'https://vyralabs.systems/blog'
+    },
+    openGraph: {
+        title: 'Blog & Resources | Vyra Labs Insights',
+        description: 'Expert insights on product development, startup growth, and technical best practices from Vyra Labs.',
+        url: 'https://vyralabs.systems/blog',
+        type: 'website'
+    }
 }
 
 const blogPosts = [

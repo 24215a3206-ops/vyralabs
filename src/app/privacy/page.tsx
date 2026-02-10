@@ -3,8 +3,11 @@ import { Footer } from '@/components/layout/footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'Privacy Policy',
-    description: 'Learn how Vyra Labs collects, uses, and protects your personal information.',
+    title: 'Privacy Policy | Vyra Labs',
+    description: 'Learn how Vyra Labs collects, uses, and protects your personal information. Your privacy is important to us.',
+    alternates: {
+        canonical: 'https://vyralabs.systems/privacy'
+    }
 }
 
 export default function PrivacyPage() {

@@ -3,8 +3,11 @@ import { Footer } from '@/components/layout/footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'Terms of Service',
-    description: 'Read the terms and conditions for using Vyra Labs services.',
+    title: 'Terms of Service | Vyra Labs',
+    description: 'Read the terms and conditions for using Vyra Labs services. Our service agreement for digital product development.',
+    alternates: {
+        canonical: 'https://vyralabs.systems/terms'
+    }
 }
 
 export default function TermsPage() {
